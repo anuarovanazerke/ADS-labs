@@ -150,9 +150,8 @@ else:
 
 #I
 from collections import deque
-import sys
-n = int(sys.stdin.readline().strip())
-s = sys.stdin.readline().strip()
+n = int(input().strip())
+s = input().strip()
 s_queue = deque()
 k_queue = deque()
 for i, ch in enumerate(s):
@@ -171,14 +170,16 @@ print("SAKAYANAGI" if s_queue else "KATSURAGI")
 
 #J
 from collections import deque
-import sys
 dq = deque()
 out = []
-for line in sys.stdin:
-    line = line.strip()
+while True:
+    try:
+        line = input().strip()
+    except EOFError: 
+        break
     if not line:
         continue
-    if line == "!":
+    if line == "!":  
         break
     if line[0] == '+':
         _, x = line.split()
