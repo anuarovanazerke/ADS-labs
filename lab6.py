@@ -53,6 +53,7 @@ while i < len(a) and j < len(b):
 if common:
     print(' '.join(map(str, common)) + ' ')
 
+
 #C
 n = int(input())
 points = list(map(int, input().split()))
@@ -92,6 +93,7 @@ dates = [input().strip() for _ in range(n)]
 sorted_dates = quick_sort(dates)
 for d in sorted_dates:
     print(d)
+
 
 #E
 def bubble_sort_desc(arr):

@@ -80,8 +80,7 @@ node = find_node(root, target)
 
 print(subtree_size(node))
 
-#C
-#D
+
 #E
 from collections import deque, defaultdict
 n = int(input().strip())
@@ -107,7 +106,7 @@ while q:
         if right:
             q.append(right)
 
-print(max_width)
+print(max_width) 
 
 #F
 class Node:
@@ -143,9 +142,7 @@ for v in values:
     root = insert(root, v)
 
 print(count_triangles(root))
-#G
-#H
-#I
+
 #J
 def build_order(sorted_arr):
     n = len(sorted_arr)

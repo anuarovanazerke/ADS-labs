@@ -34,6 +34,7 @@ stones = list(map(int, input().split()))
 
 print(rock_game(stones))
 
+
 #C
 import heapq
 n, m = map(int, input().split())
@@ -65,6 +66,7 @@ while mixtures and mixtures[0] < k:
     count += 1
 else:
     print(count)
+
 
 #E
 import heapq
