@@ -1,67 +1,35 @@
 #A
-import heapq
 import sys
+import heapq
 
 input = sys.stdin.readline
-
 N, M = map(int, input().split())
 events = [[] for _ in range(N + 2)] 
-ends = [[] for _ in range(N + 2)]    
+ends   = [[] for _ in range(N + 2)]   
 
-for _ in range(M):
+for sid in range(M):
     l, r, c = map(int, input().split())
-    events[l].append((c, r))
-    ends[r].append((c, r))
-
-active = []
-removed = set()
-seg_id = 0
-id_map = {}  
-
-for l in range(1, N+1):
-    for c, r in events[l]:
-        id_map[(c, r, seg_id)] = seg_id
-        seg_id += 1
-
-seg_id = 0
-events = [[] for _ in range(N + 2)]
-ends = [[] for _ in range(N + 2)]
-
-import itertools
-unique_id = itertools.count()
-
-segments = []
-sys.stdin.seek(0)
-input()
-input()
-
-sys.stdin.seek(0)
-input()
-for _ in range(M):
-    l, r, c = map(int, input().split())
-    sid = next(unique_id)
     events[l].append((c, r, sid))
     ends[r].append(sid)
-    segments.append((c, r, sid))
 
-active = []
-deleted = set()
-
+active = []    
+deleted = set() 
 answer = 0
 
 for i in range(1, N):
+
     for c, r, sid in events[i]:
         heapq.heappush(active, (c, r, sid))
-
     for sid in ends[i]:
         deleted.add(sid)
-
     while active and active[0][2] in deleted:
         heapq.heappop(active)
+
     c, r, sid = active[0]
     answer += c
 
 print(answer)
+
 #B
 n = int(input())
 a = list(map(int, input().split()))
